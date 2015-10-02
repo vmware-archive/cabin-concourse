@@ -2,12 +2,12 @@
 
 set -e
 
+sudo rm /etc/nixos/configuration.nix && sudo ln configuration.nix /etc/nixos/
+
 if [[ $(ssh-add -L) == *no\ ident* ]]; then
   echo "Add some ssh keys, dawg!"
   exit 1
 fi
-
-sudo rm /etc/nixos/configuration.nix && sudo ln configuration.nix /etc/nixos/
 
 {
   echo $HOME/workspace/concourse git@github.com:concourse/concourse.git
@@ -21,7 +21,17 @@ sudo rm /etc/nixos/configuration.nix && sudo ln configuration.nix /etc/nixos/
   fi
 done
 
+mkdir -p $HOME/bin
+
+mkdir /tmp/duet
+pushd /tmp/duet
+wget https://github.com/git-duet/git-duet/releases/download/0.3.0/linux_amd64.tar.gz
+tar -zxf linux_amd64.tar.gz
+rm linux_amd64.tar.gz
+mv * $HOME/bin
+popd
+rm -rf /tmp/duet
+
 export GOPATH=$HOME/go
 mkdir -p $HOME/go
 go get -u github.com/onsi/ginkgo/ginkgo
-go get -u github.com/git-duet/git-duet
