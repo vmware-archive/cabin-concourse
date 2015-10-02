@@ -86,7 +86,7 @@
   # Set sddm as the default displayManager
   services.xserver.displayManager.sddm.enable = true;
 
-  # Set OpenBox as the default windowManager
+  # Set xmonad as the default windowManager
   services.xserver.windowManager.xmonad.enable = true;
   services.xserver.windowManager.xmonad.enableContribAndExtras = true;
   services.xserver.windowManager.default = "xmonad";
