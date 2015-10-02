@@ -8,6 +8,7 @@ nixos-rebuild switch
 echo "*************************************"
 echo "Rebooting machine, don't be scared ;)"
 echo "*************************************"
+
 sleep 3
 
 reboot
