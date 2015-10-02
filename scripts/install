@@ -7,16 +7,10 @@ nixos-generate-config --root /mnt
 cp configuration.nix /mnt/etc/nixos/
 nixos-install
 
+echo "*************************************"
+echo "Rebooting machine, don't be scared ;)"
+echo "*************************************"
 
-# su - pilot -c 'cd ~ && mkdir workspace && cd workspace && git clone https://github.com/concourse/cabin.git'
+sleep 3
 
-# echo "Set the password of the pilot user:"
-# passwd pilot
-
-# echo "*************************************"
-# echo "Rebooting machine, don't be scared ;)"
-# echo "*************************************"
-
-# sleep 3
-
-# reboot
+reboot
