@@ -21,7 +21,7 @@ sudo rm /etc/nixos/configuration.nix && sudo ln configuration.nix /etc/nixos/
   fi
 done
 
-export $GOPATH=$HOME/go
+export GOPATH=$HOME/go
 mkdir -p $HOME/go
 go get -u github.com/onsi/ginkgo/ginkgo
 go get -u github.com/git-duet/git-duet
