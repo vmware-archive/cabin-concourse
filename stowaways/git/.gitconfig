@@ -1,0 +1,13 @@
+[user]
+	name = Chris Brown
+	email = xoebus@xoeb.us
+[color]
+        branch = auto
+        diff = auto
+        status = auto
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+[push]
+	default = simple

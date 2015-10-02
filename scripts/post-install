@@ -35,3 +35,7 @@ rm -rf /tmp/duet
 export GOPATH=$HOME/go
 mkdir -p $HOME/go
 go get -u github.com/onsi/ginkgo/ginkgo
+
+pushd stowaways
+./load_dotfiles
+popd

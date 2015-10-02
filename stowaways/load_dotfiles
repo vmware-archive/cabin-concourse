@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -e
+
+stow --verbose \
+  --target $HOME \
+  --stow \
+    fish \
+    git \
+    htop \
+    tmux
