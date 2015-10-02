@@ -30,15 +30,15 @@
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
-    wget
-    go
-    neovim
     chromium
+    direnv
     fish
     git
+    go
+    neovim
     phantomjs2
-    direnv
     termite
+    wget
   ];
 
   fonts = {
@@ -64,19 +64,18 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "eurosign:e";
 
-  # Enable the KDE Desktop Environment.
-  # services.xserver.displayManager.kdm.enable = true;
-  # services.xserver.desktopManager.kde4.enable = true;
+  # Set sddm as the default displayManager
+  services.xserver.displayManager.sddm.enable = true;
 
+  # Set OpenBox as the default windowManager
   services.xserver.windowManager.openbox.enable = true;
   services.xserver.windowManager.default = "openbox";
 
-  services.xserver.displayManager.sddm.enable = true;
- 
+  # Enabling Pulse Audio for sound
   hardware.pulseaudio.enable = true;
 
+  # Enable postgresql for Concourse
   services.postgresql.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -88,6 +87,7 @@
   };
 
   nixpkgs.config = {
+    # Enable restricted packages
     allowUnfree = true;
 
     chromium = {
