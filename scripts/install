@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -e
+
+nixos-generate-config --root /mnt
+
+cp configuration.nix /mnt/etc/nixos/
+nixos-install
+
+# su - pilot -c 'cd ~ && mkdir workspace && cd workspace && git clone https://github.com/concourse/cabin.git'
+
+# echo "Set the password of the pilot user:"
+# passwd pilot
+
+# echo "*************************************"
+# echo "Rebooting machine, don't be scared ;)"
+# echo "*************************************"
+
+# sleep 3
+
+# reboot
