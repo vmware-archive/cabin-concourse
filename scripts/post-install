@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [[ $(ssh-add -L) == *no\ ident* ]]; then
+  echo "Add some ssh keys, dawg!"
+  exit 1
+fi
+
+sudo rm /etc/nixos/configuration.nix && sudo ln configuration.nix /etc/nixos/
+
+{
+  echo $HOME/workspace/concourse git@github.com:concourse/concourse.git
+  echo $HOME/workspace/bosh-lite git@github.com:cloudfoundry/bosh-lite.git
+  echo $HOME/workspace/garden-linux-release git@github.com:cloudfoundry-incubator/garden-linux-release.git
+} | while read repo source; do
+  if [[ ! -d $repo ]]; then
+    pushd $(dirname $repo)
+    git clone $source --recursive
+    popd
+  fi
+done
