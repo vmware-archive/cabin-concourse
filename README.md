@@ -69,4 +69,3 @@ git clone https://github.com/concourse/cabin
 cd cabin
 scripts/post-install
 ```
-```
