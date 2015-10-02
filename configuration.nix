@@ -31,13 +31,31 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
     chromium
+    cowsay
+    ctags
     direnv
+    dmenu
+    docker
+    figlet
     fish
     git
     go
+    graphviz
+    htop
+    jq
+    lastpass-cli
+    linuxPackages.virtualbox
+    mtr
     neovim
+    parallel
     phantomjs2
+    silver-searcher
+    sqlite
+    stow
     termite
+    tmux
+    tree
+    vagrant
     wget
   ];
 
@@ -69,8 +87,9 @@
   services.xserver.displayManager.sddm.enable = true;
 
   # Set OpenBox as the default windowManager
-  services.xserver.windowManager.openbox.enable = true;
-  services.xserver.windowManager.default = "openbox";
+  services.xserver.windowManager.xmonad.enable = true;
+  services.xserver.windowManager.xmonad.enableContribAndExtras = true;
+  services.xserver.windowManager.default = "xmonad";
 
   # Enabling Pulse Audio for sound
   hardware.pulseaudio.enable = true;
