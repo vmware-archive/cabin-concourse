@@ -79,7 +79,7 @@
   services.postgresql.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.extraUsers.pivotal = {
+  users.extraUsers.pilot = {
     isNormalUser = true;
     uid = 1000;
     extraGroups = [ "wheel" "audio" "networkmanager" ];
