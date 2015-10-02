@@ -9,7 +9,7 @@ The forward operating base of the concourse team!
     1. first sector: \<default\>
     1. size: `500M`
     1. partition code: `EF00`
-   1. create a main partition
+  1. create a main partition
     1. partition: \<default\>
     1. first sector: \<default\>
     1. size: \<default\>
@@ -46,15 +46,27 @@ mkdir /mnt/boot
   ```
 mount /dev/sda1 /mnt/boot
   ```
-1. `nixos-generate-config --root /mnt`
-1. minimal changes to `/mnt/etc/nixos/configuration.nix` to start things
-  1. include `git` as one of the `environment.systemPackages` to get
-  1. Add the following lines to the config:
+1. Install git:
   ```
-boot.initrd.luks.devices = [ { device = "/dev/sda2"; name = "crypted"; } ];
+  nix-env -i git
+  git clone https://github.com/concourse/cabin
   ```
-1. `nixos-install`
-1. reboot or shutdown/whatever you want, just take out the USB/Disc before the machine starts up.
+1. Run the install script
+  ```
+  cabin/scripts/install
+  ```
 
-
-After restart check this repo out, replace /etc/nixos/configuration.nix with the one in this repo and run `nixos-rebuild switch` and reboot.
+## Post Install
+1. After restart you'll need to set the password for the `pilot` user:
+  1. Once the login screen comes up, hit `alt` + `shift` + `F1` to open terminal 1
+  1. login as root
+  1. type `passwd pilot` to set the password for `pilot`
+  1. exit and then hit `alt` + `shift` + `F1` to get back to the prompt
+1. Checkout cabin and run the post install script:
+```
+mkdir workspace
+git clone https://github.com/concourse/cabin
+cd cabin
+scripts/post-install
+```
+```
