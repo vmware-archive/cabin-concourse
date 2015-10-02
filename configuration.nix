@@ -115,6 +115,8 @@
     };
   };
 
+  # Setup the encrypted filesystem correctly
+  boot.initrd.luks.devices = [ { device = "/dev/sda2"; name = "crypted"; } ];
 
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "15.09";
