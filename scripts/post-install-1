@@ -5,6 +5,11 @@ set -e
 cp configuration.nix /etc/nixos/
 nixos-rebuild switch
 
+su - pilot -c 'cd ~ && mkdir workspace && cd workspace && git clone https://github.com/concourse/cabin.git'
+
+echo "Set the password of the pilot user:"
+passwd pilot
+
 echo "*************************************"
 echo "Rebooting machine, don't be scared ;)"
 echo "*************************************"
