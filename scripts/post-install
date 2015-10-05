@@ -38,4 +38,8 @@ go get -u github.com/onsi/ginkgo/ginkgo
 
 pushd stowaways
 ./load_dotfiles
+pushd ~/.nvim
+cd bundle/YouCompleteMe
+./install.py
+popd
 popd

@@ -32,6 +32,9 @@
   environment.systemPackages = with pkgs; [
     arandr
     chromium
+    clang
+    clangStdenv
+    cmake
     cowsay
     ctags
     direnv
@@ -86,6 +89,9 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.layout = "us";
+
+  # Nvidia graphics
+   services.xserver.videoDrivers = [ "nvidia" ];
 
   # Set sddm as the default displayManager
   services.xserver.displayManager.sddm.enable = true;
