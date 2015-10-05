@@ -51,7 +51,7 @@
     parallel
     phantomjs2
     python
-    python27Packages.pip
+    python27Packages.neovim
     silver-searcher
     sqlite
     stow
