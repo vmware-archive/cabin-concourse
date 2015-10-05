@@ -51,6 +51,7 @@
     parallel
     phantomjs2
     python
+    python27Packages.pip
     silver-searcher
     sqlite
     stow
@@ -58,6 +59,7 @@
     tmux
     tree
     vagrant
+    which
     wget
   ];
 
