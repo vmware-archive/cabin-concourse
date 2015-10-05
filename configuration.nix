@@ -50,6 +50,7 @@
     neovim
     parallel
     phantomjs2
+    python
     silver-searcher
     sqlite
     stow
