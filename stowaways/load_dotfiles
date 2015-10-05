@@ -8,4 +8,5 @@ stow --verbose \
     fish \
     git \
     htop \
+    vim \
     tmux

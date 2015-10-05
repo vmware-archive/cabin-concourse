@@ -1,0 +1,3 @@
+[submodule "stowaways/vim/.nvim"]
+	path = stowaways/vim/.nvim
+	url = https://github.com/vito/dot-nvim
