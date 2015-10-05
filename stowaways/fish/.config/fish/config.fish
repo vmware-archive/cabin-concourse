@@ -8,4 +8,8 @@ set EDITOR nvim
 alias vim=nvim
 alias vi=nvim
 
+if test -e $HOME/.screenlayout/mirrored.sh
+  $HOME/.screenlayout/mirrored.sh
+end
+
 eval (direnv hook fish)
