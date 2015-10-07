@@ -9,4 +9,5 @@ stow --verbose \
     git \
     htop \
     vim \
-    tmux
+    tmux \
+    wrappers
