@@ -1,5 +1,5 @@
 # Setup Path
-set PATH $PATH ~/bin
+set PATH ~/bin $PATH
 
 # supress greeting
 set fish_greeting
