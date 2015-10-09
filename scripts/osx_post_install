@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+set -e
+
+# Setup Brew
+if [[ $(which brew) == "" ]]; then
+  xcode-select --install
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+else
+  brew update
+fi
+
+# Setup Brew Cask
+brew install caskroom/cask/brew-cask
+
+# Setup Git Duet Tap
+brew tap git-duet/tap
+
+brew install golang git fish stow tmux htop-osx python direnv the_silver_searcher wget postgresql node git-duet
+brew cask install google-chrome flycut shiftit iterm2 vagrant virtualbox postico slack screenhero
+
+# Install PhantomJS
+npm install phantom phantomjs -g
+
+# Setup dotfiles 
+pushd stowaways
+./load_dotfiles
+popd
+
+# Setup NeoVim
+brew tap neovim/neovim
+brew install --HEAD neovim
+
+pushd $HOME/.nvim/bundle/YouCompleteMe/
+pip2 install neovim
+./install.sh
+popd
+
+# Install Bosh
+gem install bosh_cli
+
+#check out necessary directories
+pushd $HOME/workspace
+git clone git@github.com:concourse/concourse.git --recursive -b develop || true
+
+# Also Setup direnv
+pushd concourse
+direnv allow
+go get github.com/onsi/ginkgo/ginkgo
+go get github.com/vito/gosub
+popd
+
+git clone git@github.com:cloudfoundry/bosh-lite.git
+git clone git@github.com:cloudfoundry-incubator/garden-linux-release.git
+popd
+
