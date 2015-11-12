@@ -1,14 +1,15 @@
 # Setup Path
-set PATH ~/bin $PATH
+set -x PATH ~/bin $PATH
 
 # supress greeting
-set fish_greeting
+set -x fish_greeting
 
-# set nvim to default editor
-set EDITOR nvim
+# sets nvim to default editor
+set -x EDITOR nvim
 
 # set git duet to automatically be global
-set GIT_DUET_GLOBAL true
+set -x GIT_DUET_GLOBAL true
+set -x GIT_DUET_ROTATE_AUTHOR 1
 
 # aliases
 alias vim=nvim
