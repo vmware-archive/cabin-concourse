@@ -8,6 +8,6 @@ stow --verbose \
     fish \
     git \
     htop \
-    vim \
+    nvim \
     tmux \
     wrappers
